@@ -6,8 +6,11 @@
 (in-suite :paip)
 
 (test fib-test
-  (is (fib 10) 55))
+  (is (= (fib 10) 55)))
 
 (test pat-match1
-      (is (pat-match '(?x (?or < = >) ?y) '(3 < 4))
-          '((?Y . 4) (?X . 3))))
+  (is (equal (pat-match '(?x = 1) '(1 = 1))
+             '((paip::?X . 1))))
+
+  (is (equal (pat-match '(?x (?or < = >) ?y) '(3 < 4))
+             '((paip::?Y . 4) (paip::?X . 3)))))
