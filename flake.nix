@@ -25,7 +25,6 @@
             "sbcl"
             "ecl"
             "ccl"
-            "mkcl"
             "clisp"
             "cmucl_binary"
             "clasp-common-lisp"
@@ -177,11 +176,6 @@
               lisp = pkgs.clasp-common-lisp;
               evalFlag = "--eval";
               extraArgs = "--noinform";
-            };
-            mkcl = unbundledPackage {
-              lisp = pkgs.mkcl;
-              evalFlag = "-eval";
-              extraArgs = "--quiet";
             };
           };
           apps = impl: [

@@ -44,7 +44,6 @@ Then load the project:
 | ECL | `.#main-ecl` | `.#test-ecl` | - |
 | ABCL | `.#main-abcl` | `.#test-abcl` | - |
 | CCL | `.#main-ccl` | `.#test-ccl` | - |
-| MKCL | `.#main-mkcl` | `.#test-mkcl` | - |
 | CLISP | `.#main-clisp` | `.#test-clisp` | - |
 | CMUCL | `.#main-cmucl_binary` | `.#test-cmucl_binary` | - |
 | Clasp | `.#main-clasp-common-lisp` | `.#test-clasp-common-lisp` | - |
