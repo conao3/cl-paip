@@ -233,7 +233,7 @@
             (builtins.concatMap packages availableLispImpls);
           apps =
             builtins.listToAttrs (builtins.concatMap apps availableLispImpls)
-            // lib.optionals (isAvailable "sbcl") {
+            // lib.optionalAttrs (isAvailable "sbcl") {
               coverage-sbcl = coverage-sbcl;
             };
         };
