@@ -75,9 +75,11 @@
             testExe = pkgs.writeShellScriptBin "${pname}-test" ''
               export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}
               ${lisp'}/bin/${lisp'.meta.mainProgram} ${extraArgs} ${evalFlag} '(require "asdf")' ${evalFlag} "$(cat <<EOF
-                (progn
-                  (asdf:test-system :${pname})
-                  (quit))
+                (uiop:quit
+                  (handler-case (progn (asdf:test-system :${pname}) 0)
+                    (error (c)
+                      (format *error-output* "~a~%" c)
+                      1)))
               EOF
               )" -- "$@"
             '';
@@ -113,9 +115,11 @@
             testExe = pkgs.writeShellScriptBin "${pname}-test" ''
               export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}
               ${lisp'}/bin/${lisp'.meta.mainProgram} ${extraArgs} ${evalFlag} '(require "asdf")' ${evalFlag} "$(cat <<EOF
-                (progn
-                  (asdf:test-system :${pname})
-                  (quit))
+                (uiop:quit
+                  (handler-case (progn (asdf:test-system :${pname}) 0)
+                    (error (c)
+                      (format *error-output* "~a~%" c)
+                      1)))
               EOF
               )" -- "$@"
             '';

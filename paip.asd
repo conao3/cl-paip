@@ -9,4 +9,5 @@
 (defsystem #:paip/test
   :depends-on (#:fiveam #:paip/test/paip)
   :perform (test-op (o c)
-             (symbol-call :fiveam :run! :paip)))
+             (unless (symbol-call :fiveam :run! :paip)
+               (error "The paip test suite failed."))))
