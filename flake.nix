@@ -139,6 +139,7 @@
             '';
           in {
             type = "app";
+            meta.description = "Run the ${pname} tests with sbcl and write the coverage report to coverage/";
             inherit program;
           };
           recipe = {
@@ -188,6 +189,7 @@
               name = "main-" + impl;
               value = {
                 type = "app";
+                meta.description = "Run ${pname} with ${impl}";
                 program = recipe.${impl}.mainExe;
               };
             }
@@ -195,6 +197,7 @@
               name = "test-" + impl;
               value = {
                 type = "app";
+                meta.description = "Run the ${pname} tests with ${impl}";
                 program = recipe.${impl}.testExe;
               };
             }
