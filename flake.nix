@@ -4,10 +4,10 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
   };
-  outputs = inputs@{ nixpkgs, flake-parts, ... }:
+  outputs = inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [ flake-parts.flakeModules.easyOverlay ];
-      systems = nixpkgs.lib.platforms.all;
+      systems = [ "x86_64-linux" "aarch64-darwin" ];
       perSystem = { config, pkgs, lib, system, ... }:
         let
           ############ Settings ############
