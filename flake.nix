@@ -32,14 +32,14 @@
           ];
           ##################################
           systems = let
-            asd = builtins.readFile "${src}/${pname}.asd";
+            asd = builtins.readFile (src + "/${pname}.asd");
             res = builtins.split ''defsystem[[:space:]]*([^[:space:]]*)'' asd;
             odd = n: lib.trivial.mod n 2 == 1;
             sys1 = lib.lists.flatten (lib.lists.ifilter0 (i: v: odd i) res);
             sys2 = builtins.map (s: builtins.replaceStrings [''"'' "#:" ":"] ["" "" ""] s) sys1;
           in sys2;
           versions = let
-            asd = builtins.readFile "${src}/${pname}.asd";
+            asd = builtins.readFile (src + "/${pname}.asd");
             res = builtins.split '':version[[:space:]]*([^[:space:]]*)'' asd;
             odd = n: lib.trivial.mod n 2 == 1;
             ver1 = lib.lists.flatten (lib.lists.ifilter0 (i: v: odd i) res);
