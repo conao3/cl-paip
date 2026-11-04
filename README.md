@@ -5,7 +5,7 @@ A Common Lisp implementation of code and concepts from Peter Norvig's "Paradigms
 ## Features
 
 - Pattern matching (`pat-match`) inspired by PAIP
-- Nix-based build system with support for 8 Common Lisp implementations
+- Nix-based build system with support for 7 Common Lisp implementations
 - FiveAM test suite with code coverage support
 
 ## Quick Start
